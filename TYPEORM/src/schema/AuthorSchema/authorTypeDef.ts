@@ -1,19 +1,18 @@
-
-export const  authorTypeDef= `#graphql
+export const authorTypeDef = `#graphql
 
     type Author {
     
-        author_id: ID!
-        author_name: String!
+        authorId: ID!
+        authorName: String!
         description: String!
         books: String!
-        isPublished: Boolean!
+   
     }
     type Query {
         
         authors: [Author]
-        author(id: ID!) : Author!
+        author(authorId: ID!) : Author!
         
     }
 
-`
+`;
