@@ -1,13 +1,14 @@
-export const authorResolver ={
+import authorService from "../../service/authorService";
 
-        Query:{
-
-            authors(){
-                return 
-            },
-            author(){
-                return 
-            }
-
-        }
+export const authorResolver = {
+  Query: {
+    authors: async (parent: any, context: any) => {
+      const newService = new authorService();
+      return newService.authors();
+    },
+    author(parent:unknown,args:any){
+        return authorService.author(args.author_id)
     }
+},
+};
+
