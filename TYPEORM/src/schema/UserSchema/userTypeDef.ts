@@ -1,8 +1,8 @@
-export const  userTypeDef= `#graphql
+export const userTypeDef = `#graphql
 
     type User {
     
-        user_id: ID!
+        userId: ID!
         username: String!
         age: Int!
         gender: String!
