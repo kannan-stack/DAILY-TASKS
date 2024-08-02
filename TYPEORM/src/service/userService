@@ -1,0 +1,23 @@
+import { Any } from "typeorm";
+import { AppDataSource } from "../data-source";
+import { User } from "../Entity/User";
+
+class userService {
+  users = async (): Promise<User[]> => {
+    const userRep = AppDataSource.getRepository(User);
+
+    let data = await userRep.find({
+      cache: true,
+    });
+    return data;
+  }
+  public static async user (args: any) {
+    
+    const userRep = AppDataSource.getRepository(User)
+    let data = await userRep.findOne({where:{user_id: args}})
+    return data
+  }
+}
+
+
+export default userService;
