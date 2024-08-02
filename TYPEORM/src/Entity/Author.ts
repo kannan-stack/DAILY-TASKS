@@ -1,22 +1,16 @@
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
- @Entity()
- export class Author{
+@Entity('AuthorInfo')
+export class Author {
+  @PrimaryGeneratedColumn()
+  authorId: number;
 
-    @PrimaryGeneratedColumn()
-    author_id : number
+  @Column()
+  authorName: string;
 
-    @Column({
-        length : 20
-    })
-    author_name : string
+  @Column()
+  description: string;
 
-    @Column("text")
-    description : string
-
-    @Column()
-    books : string
-
-    @Column()
-    isPublished : boolean
- }
+  @Column()
+  books: string;
+}
