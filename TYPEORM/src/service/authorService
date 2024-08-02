@@ -1,0 +1,25 @@
+import { AppDataSource } from "../data-source";
+import { Author } from "../Entity/Author";
+import { AuthorInfo } from "../type/authorType";
+import camelcaseKeys from 'camelcase-keys'
+
+class authorService {
+  authors = async (): Promise<AuthorInfo[]> => {
+    const authorRep = AppDataSource.getRepository(Author);
+    let data = await authorRep.find({
+      cache: true,
+    });
+    const check = data.map((author)=>camelcaseKeys(author, { deep: true }))}
+
+    console.log(check)
+    return check
+  };
+  public static async author (args: any) {
+    
+    const userRep = AppDataSource.getRepository(Author)
+    let data = await userRep.findOne({where:{authorId: args}})
+    return data
+  }
+}
+
+export default authorService;
